@@ -33,6 +33,7 @@ Output: "ZY"
 
 代码：
 ==
+```C++
 class Solution {
 public:
     string convertToTitle(int n) {
@@ -45,3 +46,4 @@ public:
         return ret;
      }
 };
+```
