@@ -1,3 +1,4 @@
+
 题目：
 ==
 Given a positive integer, return its corresponding column title as appear in an Excel sheet.
@@ -27,3 +28,20 @@ Input: 701
 Output: "ZY"
 ```
 分析：
+==
+这道题和昨天那个差不多，所以这个就是10进制转化为26进制即可。
+
+代码：
+==
+class Solution {
+public:
+    string convertToTitle(int n) {
+        string ret="";//好几次都不A，结果一样，但我没有注意到空格，发现是初始化他为空格
+        while(n)
+        {
+            ret=(char)((n-1)%26+'A')+ret;
+            n=(n-1)/26;
+        }
+        return ret;
+     }
+};
