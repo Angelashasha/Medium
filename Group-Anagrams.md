@@ -29,13 +29,31 @@ public:
         map<string, vector<string>> tmp;
         for (int i=0;i<l;i++)
         {
-            string str=strs[i];
-            sort(str.begin(), str.end());
+            string str=strs[i];sort(str.begin(), str.end());
 
             tmp[str].push_back(strs[i]);
         }
         for (map<string, vector<string> >::iterator i=tmp.begin();i!=tmp.end();i++)
             ret.push_back(i->second);
+        return ret;
+    }
+};
+```
+根据我的解题思路，代码可以简洁一些
+```C++
+class Solution {
+public:
+    vector<vector<string>> groupAnagrams(vector<string>& strs) {
+        vector<vector<string>> ret;
+        map<string, vector<string>> tmp;
+        for (string str:strs) {
+            string s=str;
+            sort(s.begin(),s.end());
+            tmp[s].push_back(str);
+        }
+        for (auto a:tmp) {
+            ret.push_back(a.second);
+        }
         return ret;
     }
 };
